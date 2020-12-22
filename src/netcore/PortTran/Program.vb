@@ -1,5 +1,6 @@
 Imports System
 Imports System.Collections.Generic
+Imports System.Net
 Imports System.Net.Sockets
 Imports System.Threading
 
@@ -20,7 +21,8 @@ Module Program
     End Sub
 
     Public Sub smethod_0(ByVal object_0 As Object)
-        Dim listener As New TcpListener(Integer.Parse(object_0.ToString))
+        Dim localAddr As IPAddress = IPAddress.Parse("127.0.0.1")
+        Dim listener As New TcpListener(localAddr, Integer.Parse(object_0.ToString))
         listener.Start()
 
         Do While True
@@ -29,7 +31,8 @@ Module Program
     End Sub
 
     Public Sub smethod_1(ByVal object_0 As Object)
-        Dim listener As New TcpListener(Integer.Parse(object_0.ToString))
+        Dim localAddr As IPAddress = IPAddress.Parse("127.0.0.1")
+        Dim listener As New TcpListener(localAddr, Integer.Parse(object_0.ToString))
         listener.Start()
 
         Do While True
