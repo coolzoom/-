@@ -5,15 +5,15 @@ Imports System.Threading
 Module Program
     Sub Main(args As String())
         If (args.Length <> 4) Then
-            Console.WriteLine("PortTran by K8gege")
-            Console.WriteLine("usage: PortTranC.exe TragetIP TargetPort VpsIP TranPort")
+            Console.WriteLine("端口数据转发")
+            Console.WriteLine("使用方式  dotnet PortTranClient.dll 目标IP 目标端口 跳板机IP 跳板机中转端口")
         Else
             Try
                 Dim str As String = args(0)
                 Dim num As Integer = Integer.Parse(args(1))
                 Dim str2 As String = args(2)
                 Dim num2 As Integer = Integer.Parse(args(3))
-                Console.WriteLine(String.Concat(New Object() {"[+] Make a Connection to ", str2, ":", num2, "..."}))
+                Console.WriteLine(String.Concat(New Object() {"[+] 连接至跳板机中转端口 ", str2, ":", num2, "..."}))
                 smethod_0(str, num, str2, num2)
                 smethod_1(str, num, str2, num2)
                 WaitHandle.WaitAll(New ManualResetEvent() {New ManualResetEvent(False)})

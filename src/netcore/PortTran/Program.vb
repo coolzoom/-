@@ -6,13 +6,13 @@ Imports System.Threading
 Module Program
     Sub Main(args As String())
         If (args.Length <> 2) Then
-            Console.WriteLine("PortTran by k8gege")
-            Console.WriteLine("usage: PortTranS.exe TranPort ConnPort")
+            Console.WriteLine("端口数据转发")
+            Console.WriteLine("使用方式: dotnet PortTranServer.dll 中转端口 待连接端口")
         Else
             Dim state As String = args(0)
             Dim str2 As String = args(1)
-            Console.WriteLine(("[+] Listening TranPort " & state & " ..."))
-            Console.WriteLine(("[+] Listening ConnPort " & str2 & " ..."))
+            Console.WriteLine(("[+] 监听中转端口中 " & state & " ..."))
+            Console.WriteLine(("[+] 监听待连接端口中 " & str2 & " ..."))
             ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf smethod_0), state)
             ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf smethod_1), str2)
             WaitHandle.WaitAll(New ManualResetEvent() {New ManualResetEvent(False)})
@@ -46,8 +46,8 @@ Module Program
         Dim buffer As Byte() = New Byte(4 - 1) {}
         If (((stream.Read(buffer, 0, buffer.Length) = 2) AndAlso (buffer(0) = &H6F)) AndAlso (buffer(1) = &H6B)) Then
             networkStream_0 = stream
-            Console.WriteLine("[+] Accept Connect OK!")
-            Console.WriteLine("[+] Waiting Another Client on ConnPort ...")
+            Console.WriteLine("[+] 中转端口连接就绪! ")
+            Console.WriteLine("[+] 等待其他客户端连接待连接端口 ...")
         Else
             smethod_3(BitConverter.ToInt32(buffer, 0), tcpClient_0)
         End If
@@ -74,8 +74,8 @@ Module Program
         Dim client2 As TcpClient = DirectCast(object_0, TcpClient())(1)
         Dim stream As NetworkStream = client.GetStream
         Dim stream2 As NetworkStream = client2.GetStream
+        Console.WriteLine("转发中...")
         Do While True
-            Console.WriteLine("transferring...")
             Try
                 Dim buffer As Byte() = New Byte(&H2800 - 1) {}
                 Dim count As Integer = stream.Read(buffer, 0, buffer.Length)
