@@ -11,3 +11,4 @@ F:\WOWServer\Source\PortTran\src\netcore\PortTran\obj\Debug\netcoreapp3.1\PortTr
 F:\WOWServer\Source\PortTran\src\netcore\PortTran\obj\Debug\netcoreapp3.1\PortTranServer.pdb
 F:\WOWServer\Source\PortTran\src\netcore\PortTran\obj\Debug\netcoreapp3.1\PortTranServer.genruntimeconfig.cache
 F:\WOWServer\Source\PortTran\src\netcore\PortTran\bin\Debug\netcoreapp3.1\start.bat
+F:\WOWServer\Source\PortTran\src\netcore\PortTran\obj\Debug\netcoreapp3.1\PortTranServer.vbprojAssemblyReference.cache
