@@ -10,29 +10,29 @@ Module Program
             Console.WriteLine("端口数据转发")
             Console.WriteLine("使用方式: dotnet PortTranServer.dll 中转端口 待连接端口")
         Else
-            Dim state As String = args(0)
-            Dim str2 As String = args(1)
-            Console.WriteLine(("[+] 监听中转端口中 " & state & " ..."))
-            Console.WriteLine(("[+] 监听待连接端口中 " & str2 & " ..."))
-            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf smethod_0), state)
-            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf smethod_1), str2)
+            Dim intPortTrans As Integer = Integer.Parse(args(0).ToString)
+            Dim intPortConn As Integer = Integer.Parse(args(1).ToString)
+            Console.WriteLine(("[+] 监听中转端口中 " & intPortTrans & " ..."))
+            Console.WriteLine(("[+] 监听待连接端口中 " & intPortConn & " ..."))
+            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf TransPortHandler), intPortTrans)
+            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf ConnPortHandler), intPortConn)
             WaitHandle.WaitAll(New ManualResetEvent() {New ManualResetEvent(False)})
         End If
     End Sub
 
-    Public Sub smethod_0(ByVal object_0 As Object)
+    Public Sub TransPortHandler(ByVal intPort As Integer)
         Dim localAddr As IPAddress = IPAddress.Parse("127.0.0.1")
-        Dim listener As New TcpListener(localAddr, Integer.Parse(object_0.ToString))
+        Dim listener As New TcpListener(localAddr, intPort)
         listener.Start()
 
         Do While True
-            smethod_2(listener.AcceptTcpClient)
+            ClientListener(listener.AcceptTcpClient)
         Loop
     End Sub
 
-    Public Sub smethod_1(ByVal object_0 As Object)
+    Public Sub ConnPortHandler(ByVal intPort As Integer)
         Dim localAddr As IPAddress = IPAddress.Parse("127.0.0.1")
-        Dim listener As New TcpListener(localAddr, Integer.Parse(object_0.ToString))
+        Dim listener As New TcpListener(localAddr, intPort)
         listener.Start()
 
         Do While True
@@ -44,7 +44,7 @@ Module Program
         Loop
     End Sub
 
-    Public Sub smethod_2(ByVal tcpClient_0 As TcpClient)
+    Public Sub ClientListener(ByVal tcpClient_0 As TcpClient)
         Dim stream As NetworkStream = tcpClient_0.GetStream
         Dim buffer As Byte() = New Byte(4 - 1) {}
         If (((stream.Read(buffer, 0, buffer.Length) = 2) AndAlso (buffer(0) = &H6F)) AndAlso (buffer(1) = &H6B)) Then
@@ -52,11 +52,11 @@ Module Program
             Console.WriteLine("[+] 中转端口连接就绪! ")
             Console.WriteLine("[+] 等待其他客户端连接待连接端口 ...")
         Else
-            smethod_3(BitConverter.ToInt32(buffer, 0), tcpClient_0)
+            ClientQueueHandler(BitConverter.ToInt32(buffer, 0), tcpClient_0)
         End If
     End Sub
 
-    Public Sub smethod_3(ByVal int_0 As Integer, ByVal tcpClient_0 As TcpClient)
+    Public Sub ClientQueueHandler(ByVal int_0 As Integer, ByVal tcpClient_0 As TcpClient)
         Dim client As TcpClient = Nothing
         If dictionary_0.ContainsKey(int_0) Then
             dictionary_0.TryGetValue(int_0, client)
@@ -65,16 +65,16 @@ Module Program
             tcpClient_0.ReceiveTimeout = &H493E0
             client.SendTimeout = &H493E0
             client.ReceiveTimeout = &H493E0
-            Dim state As Object = New TcpClient() {tcpClient_0, client}
-            Dim obj3 As Object = New TcpClient() {client, tcpClient_0}
-            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf smethod_4), state)
-            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf smethod_4), obj3)
+            Dim state As TcpClient() = New TcpClient() {tcpClient_0, client}
+            Dim obj3 As TcpClient() = New TcpClient() {client, tcpClient_0}
+            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf ClientDataTransferHandler), state)
+            ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf ClientDataTransferHandler), obj3)
         End If
     End Sub
 
-    Public Sub smethod_4(ByVal object_0 As Object)
-        Dim client As TcpClient = DirectCast(object_0, TcpClient())(0)
-        Dim client2 As TcpClient = DirectCast(object_0, TcpClient())(1)
+    Public Sub ClientDataTransferHandler(ByVal tcpClientArray As TcpClient())
+        Dim client As TcpClient = tcpClientArray(0)
+        Dim client2 As TcpClient = tcpClientArray(1)
         Dim stream As NetworkStream = client.GetStream
         Dim stream2 As NetworkStream = client2.GetStream
         Console.WriteLine("转发中...")
