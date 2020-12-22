@@ -37,7 +37,7 @@ Module Program
 
         Do While True
             Dim client As TcpClient = listener.AcceptTcpClient
-            Dim key As Integer = New Random().Next(&H3B9ACA00, &H77359400)
+            Dim key As Integer = New Random().Next(1000000000, 2000000000)
             dictionary_0.Add(key, client)
             Dim bytes As Byte() = BitConverter.GetBytes(key)
             networkStream_0.Write(bytes, 0, bytes.Length)
@@ -61,10 +61,10 @@ Module Program
         If dictionary_0.ContainsKey(int_0) Then
             dictionary_0.TryGetValue(int_0, client)
             dictionary_0.Remove(int_0)
-            tcpClient_0.SendTimeout = &H493E0
-            tcpClient_0.ReceiveTimeout = &H493E0
-            client.SendTimeout = &H493E0
-            client.ReceiveTimeout = &H493E0
+            tcpClient_0.SendTimeout = 300000
+            tcpClient_0.ReceiveTimeout = 300000
+            client.SendTimeout = 300000
+            client.ReceiveTimeout = 300000
             Dim state As TcpClient() = New TcpClient() {tcpClient_0, client}
             Dim obj3 As TcpClient() = New TcpClient() {client, tcpClient_0}
             ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf ClientDataTransferHandler), state)
@@ -80,7 +80,7 @@ Module Program
         Console.WriteLine("转发中...")
         Do While True
             Try
-                Dim buffer As Byte() = New Byte(&H2800 - 1) {}
+                Dim buffer As Byte() = New Byte(10240 - 1) {}
                 Dim count As Integer = stream.Read(buffer, 0, buffer.Length)
                 stream2.Write(buffer, 0, count)
             Catch

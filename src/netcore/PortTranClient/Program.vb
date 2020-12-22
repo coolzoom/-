@@ -32,15 +32,15 @@ Module Program
         Do While True
             Dim buffer As Byte() = New Byte(4 - 1) {}
             networkStream_0.Read(buffer, 0, buffer.Length)
-            Dim client As New TcpClient(strMediaIP, strMediaPort)
-            Dim client2 As New TcpClient(strTargetIP, strTargetPort)
-            client.SendTimeout = &H493E0
-            client.ReceiveTimeout = &H493E0
-            client2.SendTimeout = &H493E0
-            client2.ReceiveTimeout = &H493E0
-            client.GetStream.Write(buffer, 0, buffer.Length)
-            Dim state As TcpClient() = New TcpClient() {client, client2}
-            Dim obj3 As TcpClient() = New TcpClient() {client2, client}
+            Dim MediaClient As New TcpClient(strMediaIP, strMediaPort)
+            Dim TargetClient As New TcpClient(strTargetIP, strTargetPort)
+            MediaClient.SendTimeout = 300000
+            MediaClient.ReceiveTimeout = 300000
+            TargetClient.SendTimeout = 300000
+            TargetClient.ReceiveTimeout = 300000
+            MediaClient.GetStream.Write(buffer, 0, buffer.Length)
+            Dim state As TcpClient() = New TcpClient() {MediaClient, TargetClient}
+            Dim obj3 As TcpClient() = New TcpClient() {TargetClient, MediaClient}
             ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf DataTransferHandler), state)
             ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf DataTransferHandler), obj3)
         Loop
