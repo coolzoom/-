@@ -40,3 +40,8 @@ now on ./PortTranS20.exe you shall see two new line come up
 - step3, run application, eg, remote desktop. 这样你可以使用 127.0.0.1:338来访问外网主机的remoteIP:remoteport
 
 now you could just write 127.0.0.1:338, actually you will be transfer to remoteIP:remoteport
+
+
+# TODO
+- vb netcore转发延迟过高, server端崩溃频繁。原版c#测试暂时没发现过高问题
+- 原版server+vb netcore client，未发现延迟过高问题不过感觉比原版稍差
