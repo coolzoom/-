@@ -11,8 +11,8 @@ internal class Class0
     {
         if (args.Length != 4)
         {
-            Console.WriteLine("PortTran by K8gege");
-            Console.WriteLine("usage: PortTranC.exe TragetIP TargetPort VpsIP TranPort");
+            Console.WriteLine("端口数据转发客户端(目标机端)");
+            Console.WriteLine("使用方式: PortTranC.exe 目标IP 目标端口 跳板机IP 跳板机中转端口");
         }
         else
         {
@@ -22,7 +22,7 @@ internal class Class0
                 int num = int.Parse(args[1]);
                 string str2 = args[2];
                 int num2 = int.Parse(args[3]);
-                Console.WriteLine(string.Concat(new object[] { "[+] Make a Connection to ", str2, ":", num2, "..." }));
+                Console.WriteLine(string.Concat(new object[] { "[+] 连接至跳板机中转端口 ", str2, ":", num2, "..." }));
                 smethod_0(str, num, str2, num2);
                 smethod_1(str, num, str2, num2);
                 WaitHandle.WaitAll(new ManualResetEvent[] { new ManualResetEvent(false) });
@@ -66,6 +66,7 @@ internal class Class0
         TcpClient client2 = ((TcpClient[]) object_0)[1];
         NetworkStream stream = client.GetStream();
         NetworkStream stream2 = client2.GetStream();
+        Console.WriteLine("转发中...");
         while (true)
         {
             try

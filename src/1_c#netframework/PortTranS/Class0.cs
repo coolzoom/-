@@ -12,15 +12,15 @@ internal class Class0
     {
         if (args.Length != 2)
         {
-            Console.WriteLine("PortTran by k8gege");
-            Console.WriteLine("usage: PortTranS.exe TranPort ConnPort");
+            Console.WriteLine("端口数据转发服务端(跳板机端)");
+            Console.WriteLine("使用方式: PortTranS.exe 中转端口 待连接端口");
         }
         else
         {
             string state = args[0];
             string str2 = args[1];
-            Console.WriteLine("[+] Listening TranPort " + state + " ...");
-            Console.WriteLine("[+] Listening ConnPort " + str2 + " ...");
+            Console.WriteLine("[+] 监听中转端口中 " + state + " ...");
+            Console.WriteLine("[+] 监听待连接端口中 " + str2 + " ...");
             ThreadPool.QueueUserWorkItem(new WaitCallback(Class0.smethod_0), state);
             ThreadPool.QueueUserWorkItem(new WaitCallback(Class0.smethod_1), str2);
             WaitHandle.WaitAll(new ManualResetEvent[] { new ManualResetEvent(false) });
@@ -58,8 +58,8 @@ internal class Class0
         if (((stream.Read(buffer, 0, buffer.Length) == 2) && (buffer[0] == 0x6f)) && (buffer[1] == 0x6b))
         {
             networkStream_0 = stream;
-            Console.WriteLine("[+] Accept Connect OK!");
-            Console.WriteLine("[+] Waiting Another Client on ConnPort ...");
+            Console.WriteLine("[+] 中转端口连接就绪! ");
+            Console.WriteLine("[+] 等待其他客户端连接待连接端口 ...");
         }
         else
         {
@@ -91,9 +91,10 @@ internal class Class0
         TcpClient client2 = ((TcpClient[]) object_0)[1];
         NetworkStream stream = client.GetStream();
         NetworkStream stream2 = client2.GetStream();
+        Console.WriteLine("转发中...");
         while (true)
         {
-            Console.WriteLine("transferring...");
+            //Console.WriteLine("transferring...");
             try
             {
                 byte[] buffer = new byte[0x2800];
