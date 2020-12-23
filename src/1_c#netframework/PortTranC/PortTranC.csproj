@@ -1,10 +1,10 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <ProjectType>local</ProjectType>
     <ProjectVersion>7.10.377</ProjectVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>803cd16d-feb5-457f-a3eb-270e8dcbecb5</ProjectGuid>
+    <ProjectGuid>{766C0BE6-0BAE-47A5-BDD1-ADB0B5E19F92}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <AssemblyName>PortTranC</AssemblyName>
     <OutputType>Exe</OutputType>
@@ -33,8 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Global.cs" />
-    <Compile Include="DotfuscatorAttribute.cs" />
-    <Compile Include="a.cs" />
+    <Compile Include="Class0.cs" />
   </ItemGroup>
 </Project>
