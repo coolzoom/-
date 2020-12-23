@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "o3A9jpw4DP3BZTzmtv/DtQRYhAGUoC2cC2p8aJA++vG/a9r4ciOXN+xNxQw91deHRKfxsN8YFLQl9bghg6QKQA==",
+  "success": true,
+  "projectFilePath": "F:\\WOWServer\\Source\\PortTran\\src\\netcore\\PortTranClient\\PortTranClient.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

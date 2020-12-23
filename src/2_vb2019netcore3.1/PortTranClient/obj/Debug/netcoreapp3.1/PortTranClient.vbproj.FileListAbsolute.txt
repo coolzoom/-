@@ -1,0 +1,14 @@
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.AssemblyInfoInputs.cache
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.AssemblyInfo.vb
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.vbproj.CoreCompileInputs.cache
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\PortTranClient.exe
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\PortTranClient.deps.json
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\PortTranClient.runtimeconfig.json
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\PortTranClient.runtimeconfig.dev.json
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\PortTranClient.dll
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\PortTranClient.pdb
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.dll
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.pdb
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.genruntimeconfig.cache
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\bin\Debug\netcoreapp3.1\start.bat
+F:\WOWServer\Source\PortTran\src\netcore\PortTranClient\obj\Debug\netcoreapp3.1\PortTranClient.vbprojAssemblyReference.cache
