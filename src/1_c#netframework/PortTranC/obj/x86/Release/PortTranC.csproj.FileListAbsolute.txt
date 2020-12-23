@@ -3,3 +3,5 @@ F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranC\bin\Release\PortTran
 F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranC\obj\x86\Release\PortTranC.csproj.CoreCompileInputs.cache
 F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranC\obj\x86\Release\PortTranC.exe
 F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranC\obj\x86\Release\PortTranC.pdb
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranC\bin\Release\start.bat
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranC\obj\x86\Release\PortTranC.csprojAssemblyReference.cache
