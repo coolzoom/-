@@ -43,5 +43,9 @@ now you could just write 127.0.0.1:338, actually you will be transfer to remoteI
 
 
 # TODO
+## VS2019 + netcore3.1
 - vb netcore转发延迟过高, server端崩溃频繁。原版c#测试暂时没发现过高问题
 - 原版server+vb netcore client，未发现延迟过高问题不过感觉比原版稍差
+
+## VS2017 + netcore2.1
+- test netcore2.1 https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-2.1.519-windows-x64-installer
