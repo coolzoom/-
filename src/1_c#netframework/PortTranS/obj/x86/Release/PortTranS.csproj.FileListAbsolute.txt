@@ -1,0 +1,5 @@
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranS\bin\Release\PortTranS.exe
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranS\bin\Release\PortTranS.pdb
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranS\obj\x86\Release\PortTranS.csproj.CoreCompileInputs.cache
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranS\obj\x86\Release\PortTranS.exe
+F:\WOWServer\Source\PortTran\src\1_c#netframework\PortTranS\obj\x86\Release\PortTranS.pdb

@@ -35,4 +35,9 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Class0.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="start.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
