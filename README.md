@@ -1,3 +1,7 @@
+
+# 弃用。改用https://github.com/coolzoom/forward.git
+
+
 PortTran by k8gege<br>
 .NET端口转发工具 支持任意权限<br>
 
